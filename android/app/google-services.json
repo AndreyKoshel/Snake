@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "523121905661",
+    "project_id": "snake-f559a",
+    "storage_bucket": "snake-f559a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523121905661:android:8366c020059650359d5394",
+        "android_client_info": {
+          "package_name": "com.KoshelIndustrys.snake"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "523121905661-ihd436u73hotu982i3tau7v105ss3mrj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmaano0y5P48gos50xZ1_hUC4hUI1FmVI" 
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "523121905661-ihd436u73hotu982i3tau7v105ss3mrj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

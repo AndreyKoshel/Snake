@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:snake/Screens/AuthorizationPage.dart';
 import 'package:snake/Screens/HomePage.dart';
+import 'package:snake/Services/MyUser.dart';
 
 
 class SwipePage extends StatelessWidget {
@@ -8,7 +10,8 @@ class SwipePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isLoggetIn = false;
+    final MyUser? user = Provider.of<MyUser?>(context);
+    final bool isLoggetIn = user !=null;
     return isLoggetIn ? HomePage() : AuthorizationPage();
   }
 }

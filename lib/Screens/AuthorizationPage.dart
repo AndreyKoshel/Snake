@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:snake/Services/Authorization.dart';
+import 'package:snake/Services/MyUser.dart';
 
 class AuthorizationPage extends StatefulWidget {
 
@@ -15,6 +18,7 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
   late String email;
   late String password;
   bool showLogin = true;
+  Authorization authorization = Authorization();
 
   @override
   Widget build(BuildContext context) {
@@ -102,11 +106,45 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
         ),
       );
     }
-    void Login(){
+    void Login() async{
       email = emailConroller.text;
-      emailConroller.clear();
       password = passwordConroller.text;
+      if(email.isEmpty || password.isEmpty) return;
+      MyUser? user = await authorization.SignIn(email.trim(), password.trim());
+      if(user == null){
+        Fluttertoast.showToast(
+        msg: "This is Center Short Toast",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+      }else{
+      emailConroller.clear();
       passwordConroller.clear();
+      }     
+    }
+     void Registration() async{
+      email = emailConroller.text;
+      password = passwordConroller.text;
+      if(email.isEmpty || password.isEmpty) return;
+      MyUser? user = await authorization.Register(email.trim(), password.trim());
+      if(user == null){
+        Fluttertoast.showToast(
+        msg: "This is Center Short Toast",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+      }else{
+      emailConroller.clear();
+      passwordConroller.clear();
+      }     
     }
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
@@ -117,7 +155,7 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
               ? Column(
                 children: <Widget>[
 
-                  _forms('Login', Login),
+                  _forms('Registration', Registration),
                   Padding(
                     padding: EdgeInsets.all(10),
                     child: GestureDetector(
@@ -135,7 +173,7 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
               )
           : Column(
             children: <Widget>[
-              _forms('Register', Login),
+              _forms('Login', Login),
               Padding(
                 padding: EdgeInsets.all(10),
                 child: GestureDetector(

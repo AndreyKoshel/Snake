@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snake/Services/Authorization.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,15 +20,11 @@ class HomePage extends StatelessWidget {
             ),
 
           ]
-        //
-
-      ),
-
-
+       ),
       drawer: Drawer(),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            print('Hello!');
+            Authorization().LogOut();
           },
           child: Icon(Icons.add_circle_outline)
       ),
