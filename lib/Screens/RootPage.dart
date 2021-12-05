@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snake/Screens/HomePage.dart';
+import 'package:snake/Screens/MorePage.dart';
 
 import 'package:snake/Services/Constants.dart';
 import 'package:snake/Services/DataSearch.dart';
@@ -47,9 +48,8 @@ class _RootPageState extends State<RootPage> {
         Center(
           child: Text("data"),
         ),
-        Center(
-          child: Text("data"),
-        ),
+        MorePage(),
+        
         
       ],
     );

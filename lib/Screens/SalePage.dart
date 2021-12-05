@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:snake/Services/constants.dart';
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:snake/Services/Constants.dart';
 
 import 'DetailsPage.dart';
 
@@ -15,7 +17,7 @@ class _SalePageState extends State<SalePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Sale'),),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.sale),),
       body: GetBody(),
     );
   }

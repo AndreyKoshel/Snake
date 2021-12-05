@@ -29,12 +29,20 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations: 
+    sdk: flutter 
+  intl: ^0.17.0         
   flutter_native_splash: ^0.1.4
   fluttertoast: ^8.0.8
   firebase_auth: ^3.1.4
   cloud_firestore: ^2.5.4
   provider: ^6.0.1
   firebase_core: ^1.8.0
+  # easy_localization: ^3.0.0
+  shared_preferences: ^2.0.9
+  path_provider: ^2.0.7
+  sqflite: ^2.0.0+4
+  
 
 
 
@@ -67,6 +75,7 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  generate: true
 
 
 
@@ -74,6 +83,7 @@ flutter:
   assets:
    - assets/images/Snake.png
    - assets/images/Frieda.jpg
+  #  - assets/translations
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

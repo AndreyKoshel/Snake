@@ -1,0 +1,23 @@
+{"sale": "Sale",
+"@sale":{ 
+      "description": "things at a discount"
+},
+"categories": "Gategories",
+"all": "All",
+"neu": "New's",
+"cat": "Cat's",
+"dog": "Dog's",
+"bird": "Bird's",
+"rodent": "Rodent's",
+"aqua": "Aquarium's",
+"add": "Add to shopping car",
+"email": "EMAIL",
+"password": "PASSWORD",
+"reg": "Registration",
+"log": "Login",
+"regtext": "Not registered? Register;)",
+"logtext": "Have you already registered? Log in;)"
+
+
+
+}

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:snake/Services/Authorization.dart';
+import 'package:snake/Services/LanguageSwipe.dart';
 import 'package:snake/Services/MyUser.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AuthorizationPage extends StatefulWidget {
 
@@ -85,11 +87,11 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
           children: <Widget>[
             Padding(
                 padding: EdgeInsets.only(bottom: 20, top: 10),
-              child: _input(Icon(Icons.email), 'EMAIL', emailConroller, false ),
+              child: _input(Icon(Icons.email), AppLocalizations.of(context)!.email, emailConroller, false ),
             ),
             Padding(
               padding: EdgeInsets.only(bottom: 20),
-              child: _input(Icon(Icons.lock), 'PASSWORD', passwordConroller, true),
+              child: _input(Icon(Icons.lock), AppLocalizations.of(context)!.password, passwordConroller, true),
             ),
             SizedBox(height: 20),
             Padding(
@@ -147,6 +149,12 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
       }     
     }
     return Scaffold(
+      appBar: AppBar(actions: [
+        LanguagePickerWidget(),
+        Skip()
+      ],
+      elevation: 0.0,
+      ),
       backgroundColor: Theme.of(context).primaryColor,
       body: Column(
         children: <Widget>[
@@ -155,11 +163,11 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
               ? Column(
                 children: <Widget>[
 
-                  _forms('Registration', Registration),
+                  _forms(AppLocalizations.of(context)!.reg, Registration),
                   Padding(
                     padding: EdgeInsets.all(10),
                     child: GestureDetector(
-                      child: Text('Ещё не зарегистрировались? Зарегистрирутейсь;)',
+                      child: Text(AppLocalizations.of(context)!.regtext,
                       style: TextStyle(fontSize: 20, color:Colors.white,fontFamily: 'Oswald'),
                       ),
                       onTap:(){
@@ -173,12 +181,12 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
               )
           : Column(
             children: <Widget>[
-              _forms('Login', Login),
+              _forms(AppLocalizations.of(context)!.log, Login),
               Padding(
                 padding: EdgeInsets.all(10),
                 child: GestureDetector(
                   child: Align(
-                    child: Text('Уже зарегистрировались? Залогинтесь;)',
+                    child: Text(AppLocalizations.of(context)!.logtext,
                       style: TextStyle(fontSize: 20, color:Colors.white,fontFamily: 'Oswald'),
                     ),
                   ),

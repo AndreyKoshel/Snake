@@ -3,10 +3,9 @@ import 'package:snake/Screens/AllCategoriesPage.dart';
 import 'package:snake/Screens/CategorienPage.dart';
 import 'package:snake/Screens/DetailsPage.dart';
 import 'package:snake/Services/Constants.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'AllNewsPage.dart';
 import 'SalePage.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -25,14 +24,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget GetBody() {
+    final List db = _getCategoryList(context);
     var size = MediaQuery.of(context).size;
     return ListView(children: [
       GestureDetector(
-        onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => SalePage(
-                      
-                    )));
-                  },
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (_) => SalePage()));
+        },
         child: Stack(
           children: [
             Container(
@@ -50,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   children: [
                     Text(
-                      'Sale',
+                      AppLocalizations.of(context)!.sale,
                       style: TextStyle(
                           fontSize: 30,
                           color: Colors.white,
@@ -59,7 +58,6 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 10,
                     ),
-                    
                   ],
                 ),
               ),
@@ -73,18 +71,17 @@ class _HomePageState extends State<HomePage> {
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Text(
-            'Categories',
+            AppLocalizations.of(context)!.categories,
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           Row(children: [
             GestureDetector(
-               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (_) => AllCategorienPage(
-
-                 )));
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => AllCategorienPage()));
               },
               child: Text(
-                'All',
+                AppLocalizations.of(context)!.all,
                 style: TextStyle(fontSize: 15, color: Colors.grey),
               ),
             ),
@@ -106,16 +103,19 @@ class _HomePageState extends State<HomePage> {
           categories.length,
           (index) {
             return GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (_) => CategorienPage(
-                  title: categories[index]['title'].toString(),
-                  img: categories[index]['img'],
-                  producttitle: categories[index]['producttitle'],
-                  price: categories[index]['price'],
-                 )));
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => CategorienPage(
+                              title: db[index].toString(),
+                              img: categories[index]['img'],
+                              producttitle: categories[index]['producttitle'],
+                              price: categories[index]['price'],
+                            )));
               },
               child: Padding(
-                padding: const EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 5, right: 5),
                 child: Container(
                   width: 180,
                   height: 220,
@@ -131,12 +131,11 @@ class _HomePageState extends State<HomePage> {
                       bottom: 20,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 10),
-                        child: Text(categories[index]['title'],
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  color: Colors.white)),
-                        
+                        child: Text(db[index],
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                color: Colors.white)),
                       ),
                     )
                   ]),
@@ -154,18 +153,17 @@ class _HomePageState extends State<HomePage> {
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Text(
-            'New',
+            AppLocalizations.of(context)!.neu,
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           Row(children: [
             GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (_) => AllNewsPage(
-
-                 )));
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => AllNewsPage()));
               },
               child: Text(
-                'All',
+                AppLocalizations.of(context)!.all,
                 style: TextStyle(fontSize: 15, color: Colors.grey),
               ),
             ),
@@ -187,12 +185,14 @@ class _HomePageState extends State<HomePage> {
           news.length,
           (index) {
             return GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailsPAge(
-                  title: news[index]['title'].toString(),
-                  imgUrl: news[index]['imgUrl'].toString(),
-                  price: news[index]['price'].toString()
-                )));
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => DetailsPAge(
+                            title: news[index]['title'].toString(),
+                            imgUrl: news[index]['imgUrl'].toString(),
+                            price: news[index]['price'].toString())));
               },
               child: Column(
                 children: [
@@ -205,8 +205,7 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image:
-                                      NetworkImage(news[index]['imgUrl']),
+                                  image: NetworkImage(news[index]['imgUrl']),
                                   fit: BoxFit.cover)),
                         ),
                         SizedBox(
@@ -221,7 +220,6 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     width: 140,
                     child: Column(
-                      
                       children: [
                         Text(news[index]['title'],
                             style: TextStyle(
@@ -231,7 +229,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Container(
                     width: 140,
-                    
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -250,5 +247,15 @@ class _HomePageState extends State<HomePage> {
         )),
       ),
     ]);
+  }
+
+  List _getCategoryList(BuildContext context) {
+    return [
+      AppLocalizations.of(context)!.cat,
+      AppLocalizations.of(context)!.dog,
+      AppLocalizations.of(context)!.bird,
+      AppLocalizations.of(context)!.rodent,
+      AppLocalizations.of(context)!.aqua,
+    ];
   }
 }

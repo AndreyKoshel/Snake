@@ -1,15 +1,33 @@
+// ignore: avoid_web_libraries_in_flutter
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import 'package:flutter/material.dart';
+
+//  List _getCategoryList(BuildContext context) {
+//     return  [
+//              AppLocalizations.of(context)!.all,
+//              AppLocalizations.of(context)!.neu,
+//              AppLocalizations.of(context)!.categories,
+//              AppLocalizations.of(context)!.all,
+//              AppLocalizations.of(context)!.neu,
+//              AppLocalizations.of(context)!.categories
+//      ];
+// }
 List itemsTab = [
   {"icon": Icons.home, "size": 28.0},
   {"icon": Icons.map, "size": 22.0},
   {"icon": Icons.shopping_bag, "size": 22.0},
   {"icon": Icons.more_horiz, "size": 40.0},
 ];
+@override
 
-const List<Map> categories = [
+ List<Map> categories = [
   {
     
-    'title': 'Cat',
+    'title':'Cat',
+     
+
     
     'img' : ['https://zoo1.by/image/cache/catalog/tovar/reyting-suhih-kormov-dlya-koshek-41-768x960-800x800.jpg',
     'https://zoo1.by/image/cache/catalog/tovar/477306_400x400-800x800.jpg',
@@ -41,7 +59,7 @@ const List<Map> categories = [
     ],
     
     'imgUrl':
-        'https://aplicacion-para.net/wp-content/uploads/2018/04/Google-photos.jpg',
+        'https://get.wallhere.com/photo/2700x1800-px-building-castle-forest-Hohenzollern-landscape-1077207.jpg',
   },
   {
     'title': 'Dog',
@@ -177,12 +195,13 @@ const List<Map> categories = [
         'https://i.sunhome.ru/journal/118/harakter-rib-v2.orig.jpg',
   },
 ];
+
 const List news = [
   {
     'title': 'Tetra Аквариум "Cascade Globe Glass", 6,8 л',
     'price': '30',
     'imgUrl':
-        'https://garfield.by/upload/iblock/350/350a2c39b31bb147b801960f9edc90f3.jpg',
+        'https://get.wallhere.com/photo/2700x1800-px-building-castle-forest-Hohenzollern-landscape-1077207.jpg',
   },
   {
     'title': 'Royal Canin Chihuahua Adult (паштет)',
@@ -267,3 +286,7 @@ const List sales = [
         'https://zoo1.by/image/cache/catalog/tovar/2108/product_img_4018-800x800.jpeg',
   }
 ];
+
+
+
+ 

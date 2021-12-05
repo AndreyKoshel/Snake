@@ -1,7 +1,8 @@
 // ignore_for_file: unused_import
-
+// import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 import 'package:snake/Services/Constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DetailsPAge extends StatefulWidget {
   final String title;
@@ -70,13 +71,20 @@ class _DetailsPAgeState extends State<DetailsPAge> {
              height: 25,
              decoration: BoxDecoration(
                color: Colors.black,
+               borderRadius: BorderRadius.circular(5)
                ),
-               child: Center(
-                 child: Text(
-                   "Add to shopping car",
-                   style: TextStyle(color: Colors.white),
-                 )
-                 ),
+               child: GestureDetector(
+                  onTap: () {
+               // model.addProduct(widget.price, widget.title,widget.imgUrl);
+                
+              },
+                 child: Center(
+                   child: Text(
+                     AppLocalizations.of(context)!.add,
+                     style: TextStyle(color: Colors.white),
+                   )
+                   ),
+               ),
                ),
            
            )          

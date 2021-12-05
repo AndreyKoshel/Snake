@@ -1,5 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
+
+
 import 'package:flutter/material.dart';
 import 'package:snake/Screens/RootPage.dart';
 import 'package:snake/Services/constants.dart';
@@ -9,6 +11,7 @@ import 'DetailsPage.dart';
 import 'HomePage.dart';
 
 class CategorienPage extends StatefulWidget {
+  //final List db = _getCategoryList(context);
   final String title;
   final List producttitle;
   final List img;
